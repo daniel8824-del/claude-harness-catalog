@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daniel's Claude Harness Catalog</title>
+<meta name="description" content="강사 본인 운영 중인 Claude Code 하네스 시스템 전체 카탈로그 — 5 도구 + 6 레이어 + 3-Tier + 134 스킬 + MCP 풀스택 + Hook chain 5종 + 토큰 절감 12 기법">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #666;
+    --accent: #00b4d8;
+    --accent-dark: #0077b6;
+    --border: #e0e0e0;
+    --code-bg: #f7f7f7;
+    --highlight: #fff8d4;
+    --red: #c92a2a;
+    --green: #2d6a4f;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    margin: 0;
+    padding: 0;
+    line-height: 1.65;
+    font-size: 16px;
+  }
+  code, pre { font-family: 'JetBrains Mono', 'Consolas', monospace; }
+  .container { max-width: 920px; margin: 0 auto; padding: 0 24px; }
+  /* Nav bar */
+  nav.topbar {
+    border-bottom: 1px solid var(--border);
+    padding: 14px 0;
+    font-size: 13px;
+    font-family: 'JetBrains Mono', monospace;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  nav.topbar .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    align-items: center;
+  }
+  nav.topbar a {
+    color: var(--accent-dark);
+    text-decoration: none;
+  }
+  nav.topbar a:hover { text-decoration: underline; }
+  nav.topbar .brand { font-weight: 700; color: var(--fg); margin-right: 16px; }
+  /* Hero */
+  .hero {
+    padding: 60px 0 40px;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero h1 {
+    font-size: 44px;
+    font-weight: 800;
+    margin: 0 0 12px;
+    letter-spacing: -0.02em;
+  }
+  .hero .subtitle {
+    font-size: 18px;
+    color: var(--muted);
+    margin: 0 0 16px;
+  }
+  .hero .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .hero .meta span { margin-right: 14px; }
+  /* Sections */
+  section { padding: 48px 0; border-bottom: 1px solid var(--border); }
+  section h2 {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+  section .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 6px;
+  }
+  section .section-lead {
+    font-size: 15px;
+    color: var(--muted);
+    margin: 0 0 24px;
+  }
+  section h3 { font-size: 17px; margin-top: 28px; margin-bottom: 12px; }
+  /* Read more box */
+  .readmore {
+    background: var(--code-bg);
+    border-left: 3px solid var(--accent);
+    padding: 12px 16px;
+    margin: 20px 0 0;
+    font-size: 14px;
+  }
+  .readmore strong { font-family: 'JetBrains Mono', monospace; color: var(--accent-dark); }
+  .readmore a {
+    color: var(--accent-dark);
+    text-decoration: none;
+    margin-left: 4px;
+  }
+  .readmore a:hover { text-decoration: underline; }
+  /* Pre */
+  pre {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    padding: 14px 18px;
+    border-radius: 3px;
+    overflow-x: auto;
+    font-size: 13px;
+    line-height: 1.55;
+    margin: 12px 0;
+  }
+  code.inline {
+    background: var(--code-bg);
+    padding: 1px 6px;
+    border-radius: 2px;
+    font-size: 13px;
+    border: 1px solid var(--border);
+  }
+  /* Table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 14px;
+  }
+  table th, table td {
+    text-align: left;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  table th {
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 2px solid var(--fg);
+  }
+  /* Chips */
+  .chip {
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 2px 3px 2px 0;
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+  }
+  .chip.accent {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+  }
+  /* Footer */
+  footer {
+    padding: 40px 0 60px;
+    border-top: 2px solid var(--fg);
+    font-size: 14px;
+    color: var(--muted);
+  }
+  footer a { color: var(--accent-dark); }
+  footer .muted { font-size: 12px; margin-top: 16px; }
+  /* Lists */
+  ul.docs-list { list-style: none; padding: 0; }
+  ul.docs-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  ul.docs-list li:last-child { border-bottom: none; }
+  ul.docs-list code {
+    background: var(--code-bg);
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    min-width: 220px;
+    flex-shrink: 0;
+  }
+  ul.docs-list .desc { font-size: 14px; color: var(--muted); }
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 32px; }
+    ul.docs-list li { flex-direction: column; gap: 4px; }
+    ul.docs-list code { min-width: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="topbar">
+  <div class="container">
+    <span class="brand">Daniel's Claude Harness Catalog</span>
+    <a href="#tools">5 도구</a>
+    <a href="#layers">6 레이어</a>
+    <a href="#tiers">3 Tier</a>
+    <a href="#hooks">Hook chain</a>
+    <a href="#tokens">토큰 절감</a>
+    <a href="#memory">메모리·볼트</a>
+    <a href="#search">QMD/GBrain</a>
+    <a href="#ecosystem">스킬 생태계</a>
+    <a href="#docs">📖 깊이 읽기 (6)</a>
+    <a href="https://github.com/daniel8824-del/claude-harness-catalog" target="_blank">GitHub</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <h1>Claude Harness Catalog</h1>
+    <p class="subtitle">강사 본인 운영 중인 Claude Code 하네스 시스템 — 한 장으로</p>
+    <p class="meta">
+      <span>v3 · 2026-05-12</span>
+      <span>5 도구 · 6 레이어 · 134 스킬</span>
+      <span>MEMORY 80+ · Learnings 310+</span>
+    </p>
+    <p style="margin-top: 16px; font-size: 14px;">
+      ✅ 본 카탈로그는 <strong>한 장 요약</strong>. 각 영역의 상세 자료는 <a href="#docs" style="color: var(--accent-dark);">§ 깊이 읽기</a>의 6개 마크다운 파일에서.
+    </p>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- §1 5 도구 -->
+<section id="tools">
+  <span class="section-num">§1 / 5 Tools</span>
+  <h2>5 도구 포지셔닝</h2>
+  <p class="section-lead">코딩 3종 + 수집 2종. "어떤 모델 쓰느냐"가 아니라 "어떤 작업에 어느 도구 쓰느냐"가 핵심.</p>
+
+  <h3>코딩 에이전트 (3종)</h3>
+  <table>
+    <thead><tr><th>도구</th><th>역할</th><th>모델·비용</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Claude Code</strong></td><td>메인 작업자 · Skills 생태계 · MCP 풀스택</td><td>Opus 4.x · Pro $20 / Max 5x $100 / Max 20x $200</td></tr>
+      <tr><td><strong>Codex CLI</strong></td><td>교차 검증자 · <code class="inline">/ask codex</code> · <code class="inline">/ccg</code></td><td>GPT-5.5 · Terminal-Bench 82.7%</td></tr>
+      <tr><td><strong>oh-my-opencode (Go)</strong> ⭐</td><td>저렴 코딩 라우팅 · 단순 작업 fallback</td><td>Kimi (Moonshot) · DeepSeek · 비용 1/10~1/20</td></tr>
+    </tbody>
+  </table>
+
+  <h3>수집 에이전트 (2종, 코딩 X)</h3>
+  <table>
+    <thead><tr><th>도구</th><th>역할</th><th>회사 적용</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Hermes</strong></td><td>외부 자료(논문·웹·뉴스) 자동 수집 → 볼트 적재</td><td>Jira/Confluence 자동 수집 · 18 LLM 지원</td></tr>
+      <tr><td><strong>OpenClaw</strong></td><td>OAuth 자율 컴퓨터 사용 에이전트</td><td>외부 vendor portal 자동 접근</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- §2 6 레이어 -->
+<section id="layers">
+  <span class="section-num">§2 / 6 Layers Architecture</span>
+  <h2>6 레이어 협력 모델 (코어 4 + 확장 2)</h2>
+  <p class="section-lead">초기 4 레이어 → 시스템 진화로 OMO + pro-workflow 추가 → 현재 6 레이어. 사용자 발화부터 최종 실행까지의 흐름.</p>
+
+  <pre>┌─────────────────────────────────────────────────────────────────┐
+│                    사용자 발화 (User Prompt)                      │
+└─────────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────────┐
+│  LAYER 1: SUPERPOWERS (언제 / 워크플로우 가드레일)               │
+│  • 맥락 읽고 스킬 추천 · 워크플로우 시점 결정                    │
+│  • obra/superpowers ★167K                                       │
+└─────────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────────┐
+│  LAYER 2: OMC (누가/어떻게 / 에이전트 오케스트레이션)            │
+│  • 전문 에이전트 라우팅 (Sisyphus·Oracle·Librarian 등)           │
+│  • 모델 선택 · 상태 관리 · Session continuity (task_id 기반)     │
+│  • Yeachan-Heo/oh-my-claudecode ★31K                            │
+└─────────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────────┐
+│  LAYER 3: gstack (안전 + 전문 도구)                             │
+│  • careful (위험 명령) · browse/qa · benchmark · freeze         │
+│  • garrytan/gstack ★82K                                         │
+└─────────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────────┐
+│  LAYER 4: autoresearch (방법 / 자율 반복 프로토콜)              │
+│  • modify → verify → keep/discard → repeat (bounded)            │
+│  • karpathy/autoresearch ★76K                                   │
+└─────────────────────────────────────────────────────────────────┘
+                              ↓ (코어 4 → 확장 2)
+┌─────────────────────────────────────────────────────────────────┐
+│  LAYER 5: OMO (planning 메타 / Oh My OpenAgent) ⭐               │
+│  • prometheus (전략) · metis (사전 컨설팅) · momus (품질 게이트) │
+│  • ★ OpenCode Go 전용 병렬 오케스트레이션 (Kimi·DeepSeek)        │
+│  • code-yeongyu/oh-my-openagent ★54K                            │
+└─────────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────────┐
+│  LAYER 6: pro-workflow (memory 보정)                            │
+│  • session-handoff · replay-learnings · learn-rule · vault-save │
+│  • rohitg00/pro-workflow ★2K                                    │
+└─────────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────────┐
+│  외부 CLI: qmd ★23K (Shopify CEO Tobi) · feynman ★5.8K          │
+└─────────────────────────────────────────────────────────────────┘</pre>
+
+  <div class="readmore">
+    📖 자세히: <strong>architecture.md</strong> <a href="./architecture.md">→ 각 레이어 역할·핵심 스킬·동작 메커니즘·외부 출처·진화 이유 풀스택 상세</a>
+  </div>
+</section>
+
+<!-- §3 3-Tier -->
+<section id="tiers">
+  <span class="section-num">§3 / 3 Tiers</span>
+  <h2>3-Tier 스킬 실행 시스템</h2>
+  <p class="section-lead">자동 실행 강도에 따른 3 단계.</p>
+
+  <pre>┌─────────────────────────────────────────────────────────────────┐
+│  🔴 TIER 1: 완전 자동 (결정론적 이벤트/명령)                      │
+│                                                                 │
+│  세션 시작        → replay-learnings 자동 발동                   │
+│  위험 명령 감지   → careful (rm -rf, DROP, force-push)           │
+│  컨텍스트 50%     → compact-guard 자동 압축                      │
+│  커밋 직전        → smart-commit                                 │
+│  사용자 교정 시   → learn-rule 자동 저장                         │
+│                                                                 │
+│  OMC Force 8종: ralph · autopilot · ultrawork · ccg · ralplan   │
+│                 · deep-interview · ai-slop-cleaner · cancel      │
+│  실행 Mode 4종: tdd · code-review · security-review · ultrathink │
+└─────────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────────┐
+│  🟡 TIER 2: 맥락 추천 (Claude 자율 + Hook 추천)                  │
+│                                                                 │
+│  기능 생성 전    → brainstorming                                │
+│  멀티파일 작업   → writing-plans                                │
+│  에러·실패       → systematic-debugging                         │
+│  완료 직전       → verification-before-completion               │
+│  + 그 외 120+ 스킬 (Hook이 [SKILL SUGGESTION] 태그로 추천)      │
+│                                                                 │
+│  embedding-suggester +0.03 boost · threshold 0.50 · topK 3      │
+└─────────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────────┐
+│  🟢 TIER 3: 폐기 → TIER 2 통합 (2026-05-01) (통합됨)             │
+│                                                                 │
+│  guard · retro · office-hours · investigate · health · codex    │
+│  · permission-tuner · freeze · unfreeze 9종 → Tier 2 흡수       │
+└─────────────────────────────────────────────────────────────────┘</pre>
+
+  <div class="readmore">
+    📖 자세히: <strong>architecture.md</strong> <a href="./architecture.md#tiers">→ 각 Tier 발동 조건·skip 조건·이행률 80~90% 정직 회수</a>
+  </div>
+</section>
+
+<!-- §4 Skills 14 -->
+<section id="skills">
+  <span class="section-num">§4 / Skills Catalog</span>
+  <h2>Skills 14 카테고리 (134종)</h2>
+  <p class="section-lead">강사 보유 글로벌 134종 분류. 활성화 시에만 본문 로딩 (~5000 토큰), 메타 스캔은 ~100 토큰.</p>
+
+  <table>
+    <thead><tr><th>#</th><th>카테고리</th><th>대표 스킬</th><th>출처</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>디자인 향상 (18)</td><td><code class="inline">imp-*</code></td><td>pbakaus/impeccable</td></tr>
+      <tr><td>2</td><td>디자인 시스템 (9)</td><td><code class="inline">taste-*</code></td><td>Leonxlnx/taste-skill</td></tr>
+      <tr><td>3</td><td>개발 파이프라인 (9)</td><td><code class="inline">phase-*</code></td><td>BKit 계열</td></tr>
+      <tr><td>4</td><td>플래닝/리뷰 (13)</td><td><code class="inline">brainstorming</code> · <code class="inline">prometheus</code> · <code class="inline">metis</code></td><td>혼합 (gstack/Superpowers/OMO)</td></tr>
+      <tr><td>5 ⭐</td><td>지식/메모리 (11)</td><td><code class="inline">wiki</code> · <code class="inline">session-handoff</code> · <code class="inline">replay-learnings</code></td><td>Daniel + pro-workflow</td></tr>
+      <tr><td>6</td><td>수집/리서치 (5)</td><td><code class="inline">news-collector</code> · <code class="inline">naver-scholar</code></td><td>Daniel 작성</td></tr>
+      <tr><td>7</td><td>콘텐츠 생성 (10)</td><td><code class="inline">slide-pptx</code> · <code class="inline">proposal-bid</code></td><td>Daniel 작성</td></tr>
+      <tr><td>8</td><td>QA/검증 (12)</td><td><code class="inline">design-review</code> · <code class="inline">qa</code> · <code class="inline">browse</code></td><td>gstack</td></tr>
+      <tr><td>9</td><td>안전/하네스 (8)</td><td><code class="inline">careful</code> · <code class="inline">compact-guard</code></td><td>gstack + pro-workflow</td></tr>
+      <tr><td>10</td><td>워크플로우 (다수)</td><td><code class="inline">smart-commit</code> · <code class="inline">tdd</code></td><td>Superpowers</td></tr>
+      <tr><td>11</td><td>멀티-AI (3)</td><td><code class="inline">codex</code> · <code class="inline">ccg</code> · <code class="inline">ask</code></td><td>OMC plugin</td></tr>
+      <tr><td>12</td><td>자율 반복 (9)</td><td><code class="inline">autoresearch:*</code></td><td>karpathy</td></tr>
+      <tr><td>13</td><td>통신/외부 (다수)</td><td>discord · telegram · paperclip</td><td>OMC + Daniel</td></tr>
+      <tr><td>14</td><td>유틸/도메인 (12)</td><td><code class="inline">feynman</code> · <code class="inline">seteuk</code> · <code class="inline">graphify</code></td><td>혼합</td></tr>
+    </tbody>
+  </table>
+
+  <div class="readmore">
+    📖 자세히: <strong>skill-ecosystem.md</strong> <a href="./skill-ecosystem.md">→ 134종 전체 명단 + 출처 + project-bootstrap 인터뷰 + 화이트리스트 27</a>
+  </div>
+</section>
+
+<!-- §5 MCP -->
+<section id="mcp">
+  <span class="section-num">§5 / MCP Full Stack</span>
+  <h2>MCP 풀스택 (회사 6 + 강사 추가 7)</h2>
+  <p class="section-lead">figma/notion 등 디자인 도구는 회사 환경 정합 X로 제외.</p>
+
+  <h3>회사 보유 MCP (6종)</h3>
+  <table>
+    <thead><tr><th>MCP</th><th>역할</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Jira</strong></td><td>티켓·이슈 관리</td></tr>
+      <tr><td><strong>Confluence</strong></td><td>지식 공유 · 메타데이터</td></tr>
+      <tr><td><strong>AWS</strong></td><td>클라우드 인프라</td></tr>
+      <tr><td><strong>Oracle</strong></td><td>POS DB · 거래 데이터</td></tr>
+      <tr><td><strong>Gitlab</strong></td><td>코드 형상관리</td></tr>
+      <tr><td><strong>MS Office</strong></td><td>문서·엑셀</td></tr>
+    </tbody>
+  </table>
+
+  <h3>강사 추가 MCP (회사 환경 정합 7종)</h3>
+  <table>
+    <thead><tr><th>MCP</th><th>역할</th><th>회사 적용 가치</th></tr></thead>
+    <tbody>
+      <tr><td><strong>context7</strong></td><td>SDK 공식 문서</td><td>라이브러리 사용 정확도 향상</td></tr>
+      <tr><td><strong>brave</strong></td><td>웹 검색 (유료)</td><td>최신 정보 수집</td></tr>
+      <tr><td><strong>firecrawl</strong></td><td>URL 본문 추출</td><td>외부 페이지 분석</td></tr>
+      <tr><td><strong>supabase</strong></td><td>DB 마이그레이션</td><td>Oracle 보완 후보</td></tr>
+      <tr><td><strong>gbrain</strong></td><td>지식 그래프</td><td>사내 백링크·타임라인</td></tr>
+      <tr><td><strong>graphify</strong></td><td>모듈 의존성</td><td>POS 시스템 분석</td></tr>
+      <tr><td><strong>discord/telegram</strong></td><td>알림 자동화</td><td>운영 알림 발송</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- §6 Hooks -->
+<section id="hooks">
+  <span class="section-num">§6 / Hook Chain</span>
+  <h2>Hook chain 5종 + RTK</h2>
+  <p class="section-lead">PreToolUse Hook chain — 사용자 발화 → Tier 1 자동 → Tier 2 추천 → Claude 자율 호출.</p>
+
+  <pre>사용자 발화
+    ↓
+[1] force-detector.mjs       145개 키워드 frontmatter polish
+    ↓ (매칭? → Tier 1 즉시 실행)
+[2] mode-detector.mjs        OMC tier-0 force 8 + Mode 4
+    ↓ (매칭? → Tier 1 즉시 실행)
+[3] embedding-daemon.mjs     bge-m3-q8_0 1024dim
+                             cold 70-130s → warm 50-300ms
+                             Unix socket /tmp/skill-embedding.sock
+    ↓
+[4] embedding-suggester.mjs  threshold 0.50 · topK 3
+                             [SKILL SUGGESTION] 태그 생성
+    ↓
+[5] auto-recall.mjs          decision-moment learning · threshold 0.60
+    ↓
+[5'] replay-learnings-recall 30_Claude semantic · first-prompt
+    ↓
+Claude가 맥락 보고 Tier 2 호출 결정</pre>
+
+  <h3>RTK (Rust Token Killer) — 강사 실측 60-90% 절감</h3>
+  <p><code class="inline">git</code>·<code class="inline">npm</code>·<code class="inline">ls</code> 등 dev 명령 Bash hook 자동 프록시. 명령 출력을 압축·필터링하여 토큰 폭감. 확인: <code class="inline">rtk gain --history</code></p>
+
+  <div class="readmore">
+    📖 자세히: <strong>hook-chain.md</strong> <a href="./hook-chain.md">→ 5개 Hook 각각의 코드 위치·알고리즘·threshold·실제 매칭률 87.2% (47 자연 발화 bench)</a>
+  </div>
+</section>
+
+<!-- §7 토큰 12 기법 -->
+<section id="tokens">
+  <span class="section-num">§7 / 12 Token-Saving</span>
+  <h2>강사 토큰 절감 12 기법</h2>
+  <p class="section-lead">강사 본인이 매일 굴리고 있는 12 기법. [A] Hook 자동 · [B] 구조 설계 · [C] 라우팅 · [D] 워크플로우.</p>
+
+  <table>
+    <thead><tr><th>구분</th><th>#</th><th>기법</th><th>효과</th></tr></thead>
+    <tbody>
+      <tr><td rowspan="4" style="color: var(--red); font-weight: 700;">[A] Hook 자동</td><td>1</td><td>RTK (Rust Token Killer)</td><td>60-90% (dev 명령)</td></tr>
+      <tr><td>2</td><td>compact-guard Hook</td><td>50% 자동 압축 타이밍</td></tr>
+      <tr><td>3</td><td>embedding daemon</td><td>cold 70s → warm 300ms</td></tr>
+      <tr><td>4</td><td>프롬프트 캐싱</td><td>30-50% cache_read</td></tr>
+      <tr><td rowspan="3" style="color: var(--accent-dark); font-weight: 700;">[B] 구조 설계</td><td>5</td><td>3계층 CLAUDE.md</td><td>도메인 진입 시만 로드</td></tr>
+      <tr><td>6</td><td>MEMORY.md 200줄 인덱스</td><td>본문 필요 시만 로드</td></tr>
+      <tr><td>7</td><td>Skills 메타데이터 스캔</td><td>활성화 시만 5000 토큰</td></tr>
+      <tr><td rowspan="3" style="color: var(--green); font-weight: 700;">[C] 라우팅</td><td>8</td><td>모델 라우팅 Haiku/Sonnet/Opus</td><td>작업별 비용 최적화</td></tr>
+      <tr><td>9</td><td>oh-my-opencode</td><td>Kimi/DeepSeek 1/10~1/20</td></tr>
+      <tr><td>10</td><td>Hermes/OpenClaw 수집 분리</td><td>코딩 컨텍스트 안 먹음</td></tr>
+      <tr><td rowspan="2" style="font-weight: 700;">[D] 워크플로우</td><td>11</td><td>/clear + 세션 분리</td><td>작업별 컨텍스트 초기화</td></tr>
+      <tr><td>12</td><td>Tier 게이트 (vault → 외부)</td><td>검색 비용 거의 0</td></tr>
+    </tbody>
+  </table>
+
+  <div class="readmore">
+    📖 자세히: <strong>token-saving.md</strong> <a href="./token-saving.md">→ 12 기법 각각의 메커니즘·실측 수치·강사 운영 룰·실패 사례 3건 풀스택</a>
+  </div>
+</section>
+
+<!-- §8 메모리·볼트 -->
+<section id="memory">
+  <span class="section-num">§8 / Memory & Vault</span>
+  <h2>메모리·볼트 시스템</h2>
+  <p class="section-lead">사용자별 자동 메모리 + Obsidian 30_Claude 6 영역.</p>
+
+  <pre>~/.claude/memory/
+├── MEMORY.md          200줄 인덱스 (매 세션 자동 로드)
+└── 80+ 별도 .md       필요 시만 로드
+                       ├── user_*.md      사용자 프로필
+                       ├── feedback_*.md  피드백·룰
+                       ├── project_*.md   프로젝트별 상태
+                       └── reference_*.md 외부 참조
+
+30_Claude/ (Obsidian 볼트)
+├── 00_Meta/           인덱스·로그·상태
+├── 01_Sessions/       session-handoff 저장
+├── 02_Learnings/      learn-rule 교훈 (310+)
+├── 03_Retros/         retro 주간 회고
+├── 04_Plans/          writing-plans
+├── 05_Research/       외부 리서치 3건+
+└── 06_Designs/        brainstorming 설계 결정
+
+저장 후 자동: qmd update && qmd embed (인덱싱)</pre>
+
+  <div class="readmore">
+    📖 자세히: <strong>memory-vault.md</strong> <a href="./memory-vault.md">→ 6 영역 각각의 frontmatter 규칙·자동 저장 트리거·룰 누적 단계</a>
+  </div>
+</section>
+
+<!-- §9 검색 -->
+<section id="search">
+  <span class="section-num">§9 / Search Infrastructure</span>
+  <h2>위키 시스템 (QMD / GBrain / graphify)</h2>
+  <p class="section-lead">사내 지식 무비용 검색 3종. Tier 게이트로 외부 API 비용을 거의 0으로.</p>
+
+  <table>
+    <thead><tr><th>도구</th><th>역할</th><th>특성</th></tr></thead>
+    <tbody>
+      <tr><td><strong>QMD</strong> (default)</td><td>단순 의미·키워드</td><td>988 파일 로컬 임베딩 · 무비용</td></tr>
+      <tr><td><strong>GBrain</strong> (opt-in)</td><td>백링크·타임라인·엔티티</td><td>Supabase RRF 하이브리드 · 네트워크</td></tr>
+      <tr><td><strong>graphify</strong> (opt-in)</td><td>community · god_nodes · path</td><td>로컬 3386 nodes / 247 communities</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Tier 게이트 (지식 탐색 순서)</h3>
+  <pre>Tier 1   세션 내 (CLAUDE.md · memory · 읽은 파일)         무비용
+Tier 2a  30_Claude replay-learnings (310+ entries)        무비용
+Tier 2b  20_Wiki qmd-search (988 파일)                    무비용
+Tier 2c  GBrain query (Supabase 그래프)                   거의 무비용
+Tier 3   context7 · brave · firecrawl                    [비용 발생]
+
+원칙: Tier 3 진입 전 Tier 2 통과
+발동: 프로젝트명·고유명사·과거 참조 트리거
+이행률: 80~90% (자동 100% X — 정직 회수)</pre>
+
+  <div class="readmore">
+    📖 자세히: <strong>search-system.md</strong> <a href="./search-system.md">→ Tier 게이트 룰 + 발동 트리거 + skip 조건 + score 활성화 룰</a>
+  </div>
+</section>
+
+<!-- §10 세션 라이프사이클 -->
+<section id="lifecycle">
+  <span class="section-num">§10 / Session Lifecycle</span>
+  <h2>세션 라이프사이클 흐름</h2>
+  <p class="section-lead">replay → 작업 → learn-rule → handoff → retro → replay (복리 사이클).</p>
+
+  <pre>[세션 시작]
+    ↓
+replay-learnings 자동 실행 (310+ entries 회상)
+    ↓
+[Tier 2 워크플로우]
+    brainstorming → writing-plans → 구현
+    ↓
+[실수·교훈]
+    learn-rule 자동 저장 → vault-save (Obsidian 영구)
+    → qmd update && qmd embed
+    ↓
+[세션 종료]
+    session-handoff + learn + vault-save
+    ↓
+[주간 회고]
+    retro → learn-rule → vault-save
+    ↓
+[다음 세션]
+    replay-learnings (복리 지식 활용)</pre>
+
+  <p style="color: var(--muted); margin-top: 16px;">
+    1주차: 룰 0~3 / 1개월: 10~15 / 3개월: 30~50 / 6개월: 100+ / 1년: 200+<br>
+    <strong>강사 현재:</strong> MEMORY 80+ · Learnings 310+
+  </p>
+</section>
+
+<!-- §11 스킬 에코시스템 -->
+<section id="ecosystem">
+  <span class="section-num">§11 / Skill Ecosystem</span>
+  <h2>스킬 에코시스템 (project-bootstrap)</h2>
+  <p class="section-lead">글로벌 134종 → 프로젝트 폴더 진입 시 도구함만 노출.</p>
+
+  <pre>글로벌 스킬 134개 (~/.claude/skills/)
+    ↓
+/project-bootstrap 실행 (인터뷰 10개 의도 그룹)
+    ↓
+{project}/.claude/skills/ 에 심링크 생성
+    ↓
+화이트리스트 27개 + 사용자 선택 N개만 노출
+    ↓
+embedding-suggester가 도구함 스킬에 +0.03 boost</pre>
+
+  <h3>의도 그룹 10개 (인터뷰)</h3>
+  <p>
+    <span class="chip">plan</span><span class="chip">design</span><span class="chip">verify</span><span class="chip">review</span><span class="chip">deploy</span><span class="chip">debug</span><span class="chip">retro</span><span class="chip">docs</span><span class="chip">security</span><span class="chip">content</span>
+  </p>
+
+  <h3>스킬 경로 이원화</h3>
+  <pre>~/.claude/skills/                Claude Code 전용 (134종)
+~/.config/opencode/skills/       OpenCode 전용 (분리 운영)
+환경변수: OPENCODE_DISABLE_CLAUDE_CODE_SKILLS=true</pre>
+
+  <div class="readmore">
+    📖 자세히: <strong>skill-ecosystem.md</strong> <a href="./skill-ecosystem.md">→ 화이트리스트 27 전체 명단 + 의도 그룹별 스킬 매핑 + boost 알고리즘</a>
+  </div>
+</section>
+
+<!-- §12 깊이 읽기 (마크다운 6) -->
+<section id="docs">
+  <span class="section-num">§12 / Deep Dive</span>
+  <h2>깊이 읽기 — 마크다운 6개</h2>
+  <p class="section-lead">본 카탈로그는 한 장 요약. 각 영역의 풀스택 자료는 아래 마크다운에서. GitHub repo에서 직접 열람 가능.</p>
+
+  <ul class="docs-list">
+    <li><code><a href="./architecture.md">architecture.md</a></code><span class="desc">6 레이어 + 3 Tier 풀스택 — 각 Layer 역할·핵심 스킬·동작·외부 출처·진화 이유</span></li>
+    <li><code><a href="./hook-chain.md">hook-chain.md</a></code><span class="desc">Hook chain 5종 — 알고리즘·threshold·매칭률 87.2% bench·embedding daemon 운영</span></li>
+    <li><code><a href="./token-saving.md">token-saving.md</a></code><span class="desc">토큰 절감 12 기법 + RTK 60-90% — 메커니즘·실측·운영 룰·실패 사례 3건</span></li>
+    <li><code><a href="./memory-vault.md">memory-vault.md</a></code><span class="desc">메모리 시스템 + Obsidian 30_Claude 6 영역 — frontmatter·트리거·룰 누적</span></li>
+    <li><code><a href="./search-system.md">search-system.md</a></code><span class="desc">위키 시스템 (QMD/GBrain/graphify) — Tier 게이트·발동 트리거·score 활성화</span></li>
+    <li><code><a href="./skill-ecosystem.md">skill-ecosystem.md</a></code><span class="desc">134종 스킬 + project-bootstrap + 화이트리스트 27 + 경로 이원화</span></li>
+  </ul>
+</section>
+
+<!-- §13 4 hub -->
+<section id="hub">
+  <span class="section-num">§13 / 4 Hubs</span>
+  <h2>강사 GitHub Pages 4 hub</h2>
+  <ul class="docs-list">
+    <li><code><a href="https://daniel8824-del.github.io/claude-skill-catalog/" target="_blank">claude-skill-catalog</a></code><span class="desc">스킬 카탈로그 hub (기존)</span></li>
+    <li><code><a href="https://daniel8824-del.github.io/claude-wiki-verbs/" target="_blank">claude-wiki-verbs</a></code><span class="desc">9-verb 위키 시스템</span></li>
+    <li><code><a href="https://daniel8824-del.github.io/claude-feynman-research-skill/" target="_blank">claude-feynman-research-skill</a></code><span class="desc">출처 검증 리서치 스킬</span></li>
+    <li><code><a href="https://daniel8824-del.github.io/claude-harness-catalog/" target="_blank">claude-harness-catalog ⭐</a></code><span class="desc">시스템 전체 카탈로그 (본 페이지)</span></li>
+  </ul>
+</section>
+
+</div><!-- /.container -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p>
+      <strong>Daniel's Claude Harness Catalog v3</strong> · 2026-05-12<br>
+      한 장 요약 + 6 마크다운 깊이 읽기 · 강사 본인 운영 자산 가시화.
+    </p>
+    <p class="muted">
+      Repo: <a href="https://github.com/daniel8824-del/claude-harness-catalog" target="_blank">github.com/daniel8824-del/claude-harness-catalog</a> · 외부 출처: <a href="./attribution.md">attribution.md</a><br>
+      외부 레이어: Superpowers · OMC · gstack · autoresearch · OMO · pro-workflow · qmd · feynman
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
