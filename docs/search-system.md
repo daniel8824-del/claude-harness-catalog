@@ -367,10 +367,10 @@ POS 시스템 모듈 분석:
 
 ## 13. 관련 자료
 
-- [architecture.md](./architecture.md) — 6 레이어 + 3 Tier
-- [memory-vault.md](./memory-vault.md) — 30_Claude 6 영역 (검색 대상)
-- [token-saving.md](./token-saving.md) — Tier 게이트 = 기법 12
-- [hook-chain.md](./hook-chain.md) — replay-learnings-recall
+- [architecture.md](./architecture) — 6 레이어 + 3 Tier
+- [memory-vault.md](./memory-vault) — 30_Claude 6 영역 (검색 대상)
+- [token-saving.md](./token-saving) — Tier 게이트 = 기법 12
+- [hook-chain.md](./hook-chain) — replay-learnings-recall
 
 ---
 

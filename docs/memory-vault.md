@@ -394,10 +394,10 @@ CLAUDE.md `auto memory` 섹션 명시:
 
 ## 10. 관련 자료
 
-- [architecture.md](./architecture.md) — 6 레이어 + 3 Tier (Layer 6 pro-workflow)
-- [hook-chain.md](./hook-chain.md) — replay-learnings-recall Hook
-- [search-system.md](./search-system.md) — QMD 988 파일 검색
-- [skill-ecosystem.md](./skill-ecosystem.md) — pro-workflow 스킬 명세
+- [architecture.md](./architecture) — 6 레이어 + 3 Tier (Layer 6 pro-workflow)
+- [hook-chain.md](./hook-chain) — replay-learnings-recall Hook
+- [search-system.md](./search-system) — QMD 988 파일 검색
+- [skill-ecosystem.md](./skill-ecosystem) — pro-workflow 스킬 명세
 
 ---
 

@@ -400,13 +400,13 @@ Lenient 1건 회귀 — "UI 검토" 발화에 mafia-codereview-* over-match (옵
 
 ## 11. 관련 자료
 
-- [hook-chain.md](./hook-chain.md) — Hook chain 5종 알고리즘 상세
-- [token-saving.md](./token-saving.md) — 토큰 절감 12 기법
-- [memory-vault.md](./memory-vault.md) — 메모리·볼트 시스템
-- [search-system.md](./search-system.md) — QMD/GBrain/graphify
-- [skill-ecosystem.md](./skill-ecosystem.md) — 134종 스킬 전체
-- [issues.md](./issues.md) — 발견 이슈 4건
-- [attribution.md](./attribution.md) — 외부 출처
+- [hook-chain.md](./hook-chain) — Hook chain 5종 알고리즘 상세
+- [token-saving.md](./token-saving) — 토큰 절감 12 기법
+- [memory-vault.md](./memory-vault) — 메모리·볼트 시스템
+- [search-system.md](./search-system) — QMD/GBrain/graphify
+- [skill-ecosystem.md](./skill-ecosystem) — 134종 스킬 전체
+- [issues.md](./issues) — 발견 이슈 4건
+- [attribution.md](./attribution) — 외부 출처
 
 ---
 

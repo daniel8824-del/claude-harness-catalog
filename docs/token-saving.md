@@ -276,7 +276,7 @@ Skills 134종 등록 상태:
 - Hook이 `[SKILL SUGGESTION]` 태그로 추천 → Claude 자율 호출
 - Tier 1 force 키워드 매칭
 
-**강사 보유 134종 명세:** [skill-ecosystem.md](./skill-ecosystem.md) 참조.
+**강사 보유 134종 명세:** [skill-ecosystem.md](./skill-ecosystem) 참조.
 
 ---
 
@@ -510,10 +510,10 @@ cache_write_tokens    캐시에 기록한 입력 (약간 비쌈, 1.25x, 1회만)
 
 ## 5. 관련 자료
 
-- [architecture.md](./architecture.md) — 6 레이어 + 3 Tier
-- [hook-chain.md](./hook-chain.md) — Hook chain 5종 (RTK 메커니즘 포함)
-- [memory-vault.md](./memory-vault.md) — MEMORY.md 200줄 패턴
-- [search-system.md](./search-system.md) — Tier 게이트 룰
+- [architecture.md](./architecture) — 6 레이어 + 3 Tier
+- [hook-chain.md](./hook-chain) — Hook chain 5종 (RTK 메커니즘 포함)
+- [memory-vault.md](./memory-vault) — MEMORY.md 200줄 패턴
+- [search-system.md](./search-system) — Tier 게이트 룰
 
 ---
 

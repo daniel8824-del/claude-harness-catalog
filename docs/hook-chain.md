@@ -433,10 +433,10 @@ Lenient 1건 회귀 — "UI 검토" 발화에 mafia-codereview-* over-match. 옵
 
 ## 11. 관련 자료
 
-- [architecture.md](./architecture.md) — 6 레이어 + 3 Tier 풀스택
-- [token-saving.md](./token-saving.md) — 토큰 절감 12 기법 (RTK 포함)
-- [memory-vault.md](./memory-vault.md) — 메모리·볼트 시스템
-- [skill-ecosystem.md](./skill-ecosystem.md) — 134종 스킬 전체
+- [architecture.md](./architecture) — 6 레이어 + 3 Tier 풀스택
+- [token-saving.md](./token-saving) — 토큰 절감 12 기법 (RTK 포함)
+- [memory-vault.md](./memory-vault) — 메모리·볼트 시스템
+- [skill-ecosystem.md](./skill-ecosystem) — 134종 스킬 전체
 
 ---
 

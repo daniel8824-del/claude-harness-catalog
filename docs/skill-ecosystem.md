@@ -326,10 +326,10 @@ PreToolUse hook 도구함 enforce는 폐기 (Phase E, 2026-05-01). 임베딩 메
 
 ## 9. 관련 자료
 
-- [architecture.md](./architecture.md) — 6 레이어 + 3 Tier
-- [hook-chain.md](./hook-chain.md) — embedding-suggester boost
-- [memory-vault.md](./memory-vault.md) — 메모리 스킬
-- [search-system.md](./search-system.md) — qmd/gbrain/graphify 스킬
+- [architecture.md](./architecture) — 6 레이어 + 3 Tier
+- [hook-chain.md](./hook-chain) — embedding-suggester boost
+- [memory-vault.md](./memory-vault) — 메모리 스킬
+- [search-system.md](./search-system) — qmd/gbrain/graphify 스킬
 
 ---
 
