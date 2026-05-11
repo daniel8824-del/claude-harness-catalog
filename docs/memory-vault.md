@@ -1,3 +1,9 @@
+---
+layout: default
+title: Memory & Vault
+subtitle: 메모리 + 옵시디언 30_Claude 6 영역
+---
+
 # Memory & Vault — 메모리 + 옵시디언 30_Claude 6 영역
 
 > 본 문서는 [Daniel's Claude Harness Catalog](./index.html) §8의 깊이 읽기 자료입니다.

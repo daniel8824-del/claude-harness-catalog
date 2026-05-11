@@ -1,3 +1,9 @@
+---
+layout: default
+title: Attribution
+subtitle: 외부 출처 명시 — 6 레이어 + 2 CLI + 강사 본인 자산
+---
+
 # Attribution — 외부 출처 명시
 
 본 카탈로그(`claude-harness-catalog`)는 다음 외부 자산의 조합 위에 강사 본인의 운영 룰을 누적한 결과입니다. 각 자산의 원본 출처와 라이센스를 명시합니다.

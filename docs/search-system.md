@@ -1,3 +1,9 @@
+---
+layout: default
+title: Search System
+subtitle: QMD / GBrain / graphify 위키 시스템
+---
+
 # Search System — QMD / GBrain / graphify 위키 시스템
 
 > 본 문서는 [Daniel's Claude Harness Catalog](./index.html) §9의 깊이 읽기 자료입니다.

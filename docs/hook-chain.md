@@ -1,3 +1,9 @@
+---
+layout: default
+title: Hook Chain
+subtitle: 5종 Hook + RTK 60-90% 절감 상세
+---
+
 # Hook Chain — 5종 + RTK 상세
 
 > 본 문서는 [Daniel's Claude Harness Catalog](./index.html) §6의 깊이 읽기 자료입니다.

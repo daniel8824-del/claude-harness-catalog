@@ -1,3 +1,9 @@
+---
+layout: default
+title: Skill Ecosystem
+subtitle: 134종 + project-bootstrap + 화이트리스트 27
+---
+
 # Skill Ecosystem — 134종 + project-bootstrap + 화이트리스트 27
 
 > 본 문서는 [Daniel's Claude Harness Catalog](./index.html) §11의 깊이 읽기 자료입니다.

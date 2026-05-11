@@ -1,3 +1,9 @@
+---
+layout: default
+title: Architecture
+subtitle: 6 레이어 + 3 Tier 풀스택 상세
+---
+
 # Architecture — 6 레이어 + 3 Tier 풀스택 상세
 
 > 본 문서는 [Daniel's Claude Harness Catalog](./index.html) §2-§3의 깊이 읽기 자료입니다.

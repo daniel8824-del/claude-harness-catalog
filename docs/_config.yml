@@ -1,0 +1,17 @@
+title: Daniel's Claude Harness Catalog
+description: 강사 본인 운영 중인 Claude Code 하네스 시스템 카탈로그
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+permalink: /:basename
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+exclude:
+  - README.md
+  - "*.gemspec"
+  - "Gemfile*"
